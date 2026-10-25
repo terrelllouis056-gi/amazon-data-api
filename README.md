@@ -28,7 +28,7 @@ Amazon product data for 23 marketplaces, without the PA-API 5 shutdown and witho
     "is_amazon_choice": true,
     "is_best_seller": false,
     "about": ["Durable Design: Reinforced nylon exterior and a robust core ..."],
-    "categories": ["Electronics", "Computers & Accessories", "...", "USB Cables"],
+    "categories": ["Electronics", "Computers & Accessories", "Computer Accessories & Peripherals", "Cables & Accessories", "Cables & Interconnects", "USB Cables"],
     "best_sellers_rank": [{ "rank": 1, "category": "USB Cables" }],
     "sales_volume": "10K+ bought in past month",
     "has_variations": true

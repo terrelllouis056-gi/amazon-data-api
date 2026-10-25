@@ -26,7 +26,6 @@ The Associates Program policies currently say Product Advertising Content may be
 | `ItemInfo.ByLineInfo.Brand` | `brand` | |
 | `ItemInfo.Features` | `about` | bullet points |
 | `ItemInfo.ProductInfo`, `ItemInfo.TechnicalInfo`, `ItemInfo.ManufactureInfo` | `product_details` | one label to value table; labels are in the marketplace's language |
-| `ItemInfo.Classifications` | `categories` | breadcrumb, broadest first |
 | `Offers.Listings.Price` | `price`, `currency` | numbers, not formatted strings |
 | `Offers.Listings.SavingBasis` | `original_price` | the struck-through list price |
 | `Offers.Listings.Availability` | `availability` | Amazon's text, e.g. "In Stock" |
@@ -37,12 +36,12 @@ The Associates Program policies currently say Product Advertising Content may be
 | `BrowseNodeInfo.BrowseNodes` | `categories` | names only, no node IDs |
 | `BrowseNodeInfo.WebsiteSalesRank` | `best_sellers_rank` | `{ rank, category }[]` |
 | `ParentASIN`, `VariationSummary` | `has_variations` | a flag only; no variation list |
-| `SearchItems` (`Keywords`, `SearchIndex`, `ItemPage`, `SortBy`, `MinPrice`, `MaxPrice`) | `/search` (`query`, `category`, `page`, `sort`, `min_price`, `max_price`) | results carry `asin`, `title`, `price`, `rating`, `image` and flags; `has_next_page` replaces `SearchResult.TotalResultCount` |
+| `SearchItems` (`Keywords`, `SearchIndex`, `ItemPage`, `SortBy`, `MinPrice`, `MaxPrice`) | `/search` (`query`, `category`, `page`, `sort`, `min_price`, `max_price`) | `MinPrice`/`MaxPrice` are in the lowest currency unit (cents); ours are plain numbers in the marketplace's currency. Results carry `asin`, `title`, `price`, `rating`, `image` and flags; `has_next_page` replaces `SearchResult.TotalResultCount` |
 | `GetBrowseNodes` | `/best-sellers` (by category slug) | ranked lists, not the browse-node tree |
 
 Fields this API returns that PA-API did not: `is_amazon_choice`, `is_best_seller`, `sales_volume`, `rating_distribution`, `customers_say`, `aspects`.
 
-No equivalent in this API: `GetVariations` (full variation list), `Offers.Listings.MerchantInfo`, `Offers.Summaries` (lowest/highest price across sellers), `Offers.Listings.Condition`, `RentalOffers`, `ItemInfo.ExternalIds` (UPC/EAN/ISBN, except where they appear in `product_details`), `ItemInfo.ContentRating`, `ParentASIN`, `CustomerReviews` text beyond `/product-reviews`, and the `Resources` parameter (every response returns all fields). Multi-ASIN batching (up to 10 ASINs per `GetItems` call) has no equivalent: one request returns one product.
+No equivalent in this API: `GetVariations` (full variation list), `Offers.Listings.MerchantInfo`, `Offers.Summaries` (lowest/highest price across sellers), `Offers.Listings.Condition`, `RentalOffers`, `ItemInfo.ExternalIds` (UPC/EAN/ISBN, except where they appear in `product_details`), `ItemInfo.Classifications` (Binding, ProductGroup), `ItemInfo.ContentRating`, and the `Resources` parameter (every response returns all fields). Multi-ASIN batching (up to 10 ASINs per `GetItems` call) has no equivalent: one request returns one product.
 
 ## Before and after
 
