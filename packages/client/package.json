@@ -7,9 +7,41 @@
   "homepage": "https://api.yourotherinbox.com/go/npm",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "exports": { ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" } },
-  "files": ["dist"],
-  "engines": { "node": ">=18" },
-  "keywords": ["amazon","amazon-api","amazon-product-api","pa-api","paapi5","amazon-scraper","amazon-reviews","amazon-best-sellers","mcp","mcp-server","rapidapi"],
-  "scripts": { "build": "tsc -p tsconfig.json", "test": "vitest run" }
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "amazon",
+    "amazon-api",
+    "amazon-product-api",
+    "pa-api",
+    "paapi5",
+    "amazon-scraper",
+    "amazon-reviews",
+    "amazon-best-sellers",
+    "mcp",
+    "mcp-server",
+    "rapidapi"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mraky09/amazon-data-api.git",
+    "directory": "packages/client"
+  },
+  "bugs": {
+    "url": "https://api.yourotherinbox.com/go/npm"
+  }
 }

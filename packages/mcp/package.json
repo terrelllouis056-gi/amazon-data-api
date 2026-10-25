@@ -5,10 +5,39 @@
   "description": "MCP server for the Amazon Data API: search, product details, reviews and best sellers across 23 marketplaces.",
   "type": "module",
   "license": "MIT",
-  "bin": { "amazon-data-api-mcp": "dist/index.js" },
-  "files": ["dist"],
-  "engines": { "node": ">=18" },
-  "keywords": ["mcp","mcp-server","amazon","amazon-api","amazon-product-api","rapidapi"],
-  "scripts": { "build": "tsc -p tsconfig.json", "test": "tsc -p tsconfig.json && vitest run" },
-  "dependencies": { "@modelcontextprotocol/sdk": "^1.32.2", "amazon-data-api": "^0.1.0", "zod": "^4.6.7" }
+  "bin": {
+    "amazon-data-api-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "amazon",
+    "amazon-api",
+    "amazon-product-api",
+    "rapidapi"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && vitest run"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "amazon-data-api": "^0.1.0",
+    "zod": "^4.6.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mraky09/amazon-data-api.git",
+    "directory": "packages/mcp"
+  },
+  "homepage": "https://api.yourotherinbox.com/go/npm",
+  "bugs": {
+    "url": "https://api.yourotherinbox.com/go/npm"
+  }
 }
