@@ -34,7 +34,8 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,6 @@
     "directory": "packages/client"
   },
   "bugs": {
-    "url": "https://api.yourotherinbox.com/go/npm"
+    "url": "https://github.com/Mraky09/amazon-data-api/issues"
   }
 }

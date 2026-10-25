@@ -52,22 +52,22 @@ export interface Product {
 
 export interface Review {
   review_id: string;
-  title: string;
+  title: string | null;
   body: string;
-  rating: number;
-  date: string;
-  author: string;
+  rating: number | null;
+  date: string | null;
+  author: string | null;
   verified_purchase: boolean;
-  helpful_votes: string;
-  country: string;
+  helpful_votes: string | null;
+  country: string | null;
 }
 export interface Reviews {
   asin: string;
   rating: number | null;
   total_ratings: number;
-  rating_distribution: Record<string, number> | null;
+  rating_distribution: Record<'1' | '2' | '3' | '4' | '5', number> | null;
   customers_say: string | null;
-  aspects: { name: string; mentions: number; sentiment: 'positive' | 'negative' | 'mixed' | null }[];
+  aspects: { name: string; mentions: number | null; sentiment: 'positive' | 'negative' | 'mixed' | null }[];
   top_reviews: Review[];
 }
 
@@ -78,7 +78,7 @@ export interface BestSellerItem {
   title: string | null;
   image: string | null;
   price: number | null;
-  currency: string | null;
+  currency: string;
   rating: number | null;
   total_ratings: number | null;
 }

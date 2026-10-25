@@ -1,10 +1,10 @@
 # amazon-data-api-mcp
 
-MCP server for the [Amazon Data API](https://api.yourotherinbox.com/go/npm): search, product details, ratings and best sellers for 23 Amazon marketplaces.
+MCP server for the [Amazon Data API](https://api.yourotherinbox.com/go/mcp): search, product details, ratings and best sellers for 23 Amazon marketplaces.
 
 > Earning Amazon Associates commissions? Check your Associates agreement before using any non-Amazon data source.
 
-Tools: `search_products`, `get_product`, `get_reviews`, `get_best_sellers`. Set `RAPIDAPI_KEY` (free plan: 500 requests a month; get a key on [RapidAPI](https://api.yourotherinbox.com/go/npm)).
+Tools: `search_products`, `get_product`, `get_reviews`, `get_best_sellers`. Set `RAPIDAPI_KEY` (free plan: 500 requests a month; get a key on [RapidAPI](https://api.yourotherinbox.com/go/mcp)).
 
 Claude Desktop (`claude_desktop_config.json`):
 

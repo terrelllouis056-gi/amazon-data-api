@@ -51,3 +51,11 @@ describe('AmazonData', () => {
     expect(r.data.asin).toBe('B088NRLMPV');
   }, 60000);
 });
+
+it('calls fetch unbound (no Illegal invocation with globalThis.fetch)', async () => {
+  const f = function (this: unknown) {
+    if (this !== undefined && this !== globalThis) throw new TypeError('Illegal invocation');
+    return Promise.resolve(new Response('{}', { status: 200 }));
+  };
+  await expect(new AmazonData({ apiKey: 'k', fetch: f as any }).search({ query: 'x' })).resolves.toEqual({});
+});

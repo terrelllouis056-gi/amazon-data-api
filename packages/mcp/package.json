@@ -24,7 +24,8 @@
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "tsc -p tsconfig.json && vitest run"
+    "test": "tsc -p tsconfig.json && vitest run",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.2",
@@ -36,8 +37,8 @@
     "url": "git+https://github.com/Mraky09/amazon-data-api.git",
     "directory": "packages/mcp"
   },
-  "homepage": "https://api.yourotherinbox.com/go/npm",
+  "homepage": "https://api.yourotherinbox.com/go/mcp",
   "bugs": {
-    "url": "https://api.yourotherinbox.com/go/npm"
+    "url": "https://github.com/Mraky09/amazon-data-api/issues"
   }
 }

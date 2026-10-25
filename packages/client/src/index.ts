@@ -36,7 +36,9 @@ export class AmazonData {
   private async get<T>(path: string, params: object): Promise<Envelope<T>> {
     const qs = new URLSearchParams();
     for (const [k, v] of Object.entries(params)) if (v !== undefined) qs.set(k, String(v));
-    const res = await this.fetchFn(`https://${HOST}/${path}?${qs}`, {
+    // Unbound call: a stored globalThis.fetch throws 'Illegal invocation' when called as a method.
+    const f = this.fetchFn;
+    const res = await f(`https://${HOST}/${path}?${qs}`, {
       headers: { 'X-RapidAPI-Key': this.apiKey, 'X-RapidAPI-Host': HOST },
     });
     const text = await res.text();
