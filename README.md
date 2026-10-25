@@ -4,7 +4,7 @@ Amazon product data for 23 marketplaces, without the PA-API 5 shutdown and witho
 
 > Earning Amazon Associates commissions? Check your Associates agreement before using any non-Amazon data source.
 
-**[Try it free on RapidAPI](https://api.yourotherinbox.com/go/github)** (free plan: 500 requests a month)
+**[Try it free on RapidAPI](https://rapidapi.com/terrelllouis056/api/amazon-data-api-search-product-reviews-best-sellers)** (free plan: 500 requests a month)
 
 ## Example
 
@@ -67,7 +67,7 @@ The United Kingdom is `GB`, not `UK`.
 
 ## Quickstart: JavaScript / TypeScript
 
-Subscribe on [RapidAPI](https://api.yourotherinbox.com/go/github) and copy your key. Needs Node 18+ (or Deno, Bun, a browser, Workers). No runtime dependencies.
+Subscribe on [RapidAPI](https://rapidapi.com/terrelllouis056/api/amazon-data-api-search-product-reviews-best-sellers) and copy your key. Needs Node 18+ (or Deno, Bun, a browser, Workers). No runtime dependencies.
 
 ```sh
 npm install amazon-data-api
@@ -129,7 +129,7 @@ See the [PA-API migration guide](docs/migrate-from-pa-api.md): field mapping, be
 
 ## Support
 
-Questions and bug reports: the Discussions tab on the [RapidAPI listing](https://api.yourotherinbox.com/go/github).
+Questions and bug reports: the Discussions tab on the [RapidAPI listing](https://rapidapi.com/terrelllouis056/api/amazon-data-api-search-product-reviews-best-sellers).
 
 ## Licence
 

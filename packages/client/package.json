@@ -1,10 +1,10 @@
 {
   "name": "amazon-data-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Typed client for the Amazon Data API on RapidAPI: search, product details, reviews, best sellers across 23 marketplaces.",
   "type": "module",
   "license": "MIT",
-  "homepage": "https://api.yourotherinbox.com/go/npm",
+  "homepage": "https://rapidapi.com/terrelllouis056/api/amazon-data-api-search-product-reviews-best-sellers",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
