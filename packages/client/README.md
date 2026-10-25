@@ -21,6 +21,6 @@ const top = await amazon.bestSellers({ category: 'electronics', type: 'new-relea
 
 Every method returns `{ data, meta }`. Errors throw `AmazonDataError` with `code` (the API's `error.code`, e.g. `invalid_input`, `not_found`, `busy`) and `status` (HTTP status).
 
-Get a key and a free plan (500 requests a month) on [RapidAPI](https://api.yourotherinbox.com/go/npm). Full docs: https://github.com/Mraky09/amazon-data-api
+Get a key and a free plan (500 requests a month) on [RapidAPI](https://api.yourotherinbox.com/go/npm). Full docs: https://github.com/terrelllouis056-gi/amazon-data-api
 
 MIT

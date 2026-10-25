@@ -39,10 +39,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mraky09/amazon-data-api.git",
+    "url": "git+https://github.com/terrelllouis056-gi/amazon-data-api.git",
     "directory": "packages/client"
   },
   "bugs": {
-    "url": "https://github.com/Mraky09/amazon-data-api/issues"
+    "url": "https://github.com/terrelllouis056-gi/amazon-data-api/issues"
   }
 }

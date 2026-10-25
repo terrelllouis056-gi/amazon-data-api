@@ -1,7 +1,7 @@
 {
   "name": "amazon-data-api-mcp",
   "version": "0.1.0",
-  "mcpName": "io.github.Mraky09/amazon-data-api",
+  "mcpName": "io.github.terrelllouis056-gi/amazon-data-api",
   "description": "MCP server for the Amazon Data API: search, product details, reviews and best sellers across 23 marketplaces.",
   "type": "module",
   "license": "MIT",
@@ -34,11 +34,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mraky09/amazon-data-api.git",
+    "url": "git+https://github.com/terrelllouis056-gi/amazon-data-api.git",
     "directory": "packages/mcp"
   },
   "homepage": "https://api.yourotherinbox.com/go/mcp",
   "bugs": {
-    "url": "https://github.com/Mraky09/amazon-data-api/issues"
+    "url": "https://github.com/terrelllouis056-gi/amazon-data-api/issues"
   }
 }
