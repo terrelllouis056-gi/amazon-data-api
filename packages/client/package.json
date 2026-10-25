@@ -1,0 +1,15 @@
+{
+  "name": "amazon-data-api",
+  "version": "0.1.0",
+  "description": "Typed client for the Amazon Data API on RapidAPI: search, product details, reviews, best sellers across 23 marketplaces.",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://api.yourotherinbox.com/go/npm",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": { ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" } },
+  "files": ["dist"],
+  "engines": { "node": ">=18" },
+  "keywords": ["amazon","amazon-api","amazon-product-api","pa-api","paapi5","amazon-scraper","amazon-reviews","amazon-best-sellers","mcp","mcp-server","rapidapi"],
+  "scripts": { "build": "tsc -p tsconfig.json", "test": "vitest run" }
+}
