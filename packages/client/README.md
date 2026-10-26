@@ -13,7 +13,7 @@ import { AmazonData, AmazonDataError } from 'amazon-data-api';
 
 const amazon = new AmazonData({ apiKey: process.env.RAPIDAPI_KEY! });
 
-const { data } = await amazon.search({ query: 'usb c cable', country: 'US', sort: 'price_asc' });
+const { data } = await amazon.search({ query: 'usb c cable', country: 'US', sort: 'reviews' });
 const product = await amazon.productDetails({ asin: data.results[0].asin });
 const reviews = await amazon.productReviews({ asin: 'B088NRLMPV', country: 'DE' });
 const top = await amazon.bestSellers({ category: 'electronics', type: 'new-releases' });
