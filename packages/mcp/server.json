@@ -3,12 +3,12 @@
   "name": "io.github.terrelllouis056-gi/amazon-data-api",
   "description": "Amazon search, products, reviews, offers, sellers, deals, categories, best sellers: 23 marketplaces.",
   "repository": { "url": "https://github.com/terrelllouis056-gi/amazon-data-api", "source": "github", "subfolder": "packages/mcp" },
-  "version": "0.2.0",
+  "version": "0.2.1",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "amazon-data-api-mcp",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "transport": { "type": "stdio" },
       "environmentVariables": [
         { "name": "RAPIDAPI_KEY", "description": "RapidAPI key subscribed to the Amazon Data API", "isRequired": true, "isSecret": true }

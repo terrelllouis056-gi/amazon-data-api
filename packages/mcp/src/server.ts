@@ -19,7 +19,7 @@ async function run(fn: () => Promise<{ data: unknown }>) {
 }
 
 export function createServer(client: AmazonData): McpServer {
-  const server = new McpServer({ name: 'amazon-data-api-mcp', version: '0.2.0' });
+  const server = new McpServer({ name: 'amazon-data-api-mcp', version: '0.2.1' });
   server.registerTool('search_products', {
     description: 'Search products',
     inputSchema: {
