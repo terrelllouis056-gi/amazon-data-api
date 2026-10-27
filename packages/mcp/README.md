@@ -4,7 +4,7 @@ MCP server for the [Amazon Data API](https://rapidapi.com/terrelllouis056/api/am
 
 > Earning Amazon Associates commissions? Check your Associates agreement before using any non-Amazon data source.
 
-Tools: `search_products`, `get_product`, `get_reviews`, `get_best_sellers`, `get_category_products`, `lookup_product`, `get_offers`, `get_seller_products`, `get_seller_profile`, `get_deals`, `get_categories`, `search_autocomplete`. Set `RAPIDAPI_KEY` (free plan: 500 requests a month; get a key on [RapidAPI](https://rapidapi.com/terrelllouis056/api/amazon-data-api-search-product-reviews-best-sellers)).
+Tools: `search_products`, `get_product`, `get_reviews`, `get_best_sellers`, `get_category_products`, `lookup_product`, `get_offers`, `get_seller_products`, `get_seller_profile`, `get_deals`, `get_categories`, `search_autocomplete`. Set `RAPIDAPI_KEY` (free plan: 100 requests a month; get a key on [RapidAPI](https://rapidapi.com/terrelllouis056/api/amazon-data-api-search-product-reviews-best-sellers)).
 
 Claude Desktop (`claude_desktop_config.json`):
 

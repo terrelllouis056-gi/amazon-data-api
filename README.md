@@ -4,7 +4,7 @@ Amazon product data for 23 marketplaces, without the PA-API 5 shutdown and witho
 
 > Earning Amazon Associates commissions? Check your Associates agreement before using any non-Amazon data source.
 
-**[Try it free on RapidAPI](https://rapidapi.com/terrelllouis056/api/amazon-data-api-search-product-reviews-best-sellers)** (free plan: 500 requests a month)
+**[Try it free on RapidAPI](https://rapidapi.com/terrelllouis056/api/amazon-data-api-search-product-reviews-best-sellers)** (free plan: 100 requests a month)
 
 ## Example
 
@@ -127,7 +127,7 @@ See the [PA-API migration guide](docs/migrate-from-pa-api.md): field mapping, be
 
 ## FAQ
 
-**Is it free?** The free plan on RapidAPI is 500 requests a month. RapidAPI asks for a card even on free plans. Pro is $15/month for 15,000 requests. Plans are hard limits.
+**Is it free?** The free plan on RapidAPI is 100 requests a month. RapidAPI asks for a card even on free plans. Pro is $15/month for 15,000 requests. Plans are hard limits.
 
 **Why is `top_reviews` empty for US?** Amazon shows no review text to logged-out visitors on amazon.com, so `top_reviews` is always `[]` for `US`. The rating, star breakdown, summary and topic tags are still returned. Other marketplaces usually return 5 to 13 reviews. Full review lists need an Amazon login and are not available.
 
