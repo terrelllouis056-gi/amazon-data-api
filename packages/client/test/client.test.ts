@@ -42,6 +42,21 @@ describe('AmazonData', () => {
     expect([e.code, e.status]).toEqual(['http_error', 502]);
   });
 
+  it.each([
+    ['sellerProducts', { seller_id: 'A2L77EE7U53NWQ', page: 2 }, 'seller-products?seller_id=A2L77EE7U53NWQ&page=2'],
+    ['productLookup', { identifier: '0885909950805' }, 'product-lookup?identifier=0885909950805'],
+    ['productOffers', { asin: 'B088NRLMPV', country: 'DE' }, 'product-offers?asin=B088NRLMPV&country=DE'],
+    ['deals', undefined, 'deals?'],
+    ['sellerProfile', { seller_id: 'A2L77EE7U53NWQ' }, 'seller-profile?seller_id=A2L77EE7U53NWQ'],
+    ['categories', { category: 'electronics' }, 'categories?category=electronics'],
+    ['searchAutocomplete', { query: 'usb c' }, 'search-autocomplete?query=usb+c'],
+    ['productsByCategory', { category: 'toys', sort: 'reviews' }, 'products-by-category?category=toys&sort=reviews'],
+  ])('%s hits the right path', async (method, params, path) => {
+    const f = reply(200, '{}');
+    await (new AmazonData({ apiKey: 'k', fetch: f as any }) as any)[method](params);
+    expect((f.mock.calls[0] as any)[0]).toBe(`https://${HOST}/${path}`);
+  });
+
   it('requires apiKey', () => {
     expect(() => new AmazonData({ apiKey: '' })).toThrow(TypeError);
   });

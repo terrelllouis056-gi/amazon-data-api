@@ -1,7 +1,7 @@
 {
   "name": "amazon-data-api",
-  "version": "0.1.1",
-  "description": "Typed client for the Amazon Data API on RapidAPI: search, product details, reviews, best sellers across 23 marketplaces.",
+  "version": "0.2.0",
+  "description": "Typed client for the Amazon Data API on RapidAPI: search, product details, reviews, offers, sellers, deals, categories, barcode lookup and best sellers across 23 marketplaces.",
   "type": "module",
   "license": "MIT",
   "homepage": "https://rapidapi.com/terrelllouis056/api/amazon-data-api-search-product-reviews-best-sellers",
@@ -28,6 +28,10 @@
     "amazon-scraper",
     "amazon-reviews",
     "amazon-best-sellers",
+    "amazon-offers",
+    "amazon-deals",
+    "amazon-seller",
+    "upc-lookup",
     "mcp",
     "mcp-server",
     "rapidapi"

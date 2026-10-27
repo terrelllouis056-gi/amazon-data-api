@@ -83,3 +83,58 @@ export interface BestSellerItem {
   total_ratings: number | null;
 }
 export interface BestSellersData { type: ListType; category: string; page: number; items: BestSellerItem[] }
+
+export interface SellerProductsData { seller_id: string; page: number; has_next_page: boolean; results: SearchResult[] }
+export interface CategoryProductsData { category: string; page: number; has_next_page: boolean; results: SearchResult[] }
+export interface LookupData { identifier: string; results: SearchResult[] }
+
+export interface Offer {
+  is_pinned: boolean;
+  condition: string | null;
+  condition_note: string | null;
+  price: number | null;
+  original_price: number | null;
+  currency: string;
+  seller: { id: string | null; name: string | null; rating: number | null; positive_percent: number | null; ratings_count: number | null };
+  ships_from: string | null;
+  is_sold_by_amazon: boolean;
+  is_fulfilled_by_amazon: boolean;
+  is_prime: boolean | null;
+  delivery: string | null;
+}
+export interface OffersData { asin: string; page: number; total_offers: number | null; offers: Offer[] }
+
+export interface Deal {
+  deal_id: string | null;
+  asin: string;
+  title: string | null;
+  image: string | null;
+  deal_price: number | null;
+  list_price: number | null;
+  currency: string;
+  savings_percent: number | null;
+  deal_badge: string | null;
+  percent_claimed: number | null;
+  ends_at: string | null;
+  url: string;
+}
+export interface DealsData { page: number; deals: Deal[] }
+
+export interface SellerProfile {
+  seller_id: string;
+  name: string;
+  business_name: string | null;
+  business_address: string | null;
+  store_link: string | null;
+  logo: string | null;
+  rating: number | null;
+  positive_percent_12m: number | null;
+  ratings_count_12m: number | null;
+  ratings_count_lifetime: number | null;
+  star_distribution: Record<'1' | '2' | '3' | '4' | '5', number | null>;
+}
+
+export interface Category { name: string; node_id: string | null; path: string; url: string }
+export interface CategoriesData { parent: string | null; categories: Category[] }
+
+export interface AutocompleteData { query: string; suggestions: string[] }

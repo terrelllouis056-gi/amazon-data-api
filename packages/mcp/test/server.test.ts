@@ -12,12 +12,28 @@ async function connect(fake: any) {
   await client.connect(b);
   return client;
 }
-const fake = () => ({ search: vi.fn(), productDetails: vi.fn(), productReviews: vi.fn(), bestSellers: vi.fn() });
+const METHODS = ['search', 'productDetails', 'productReviews', 'bestSellers', 'sellerProducts', 'productLookup', 'productOffers',
+  'deals', 'sellerProfile', 'categories', 'searchAutocomplete', 'productsByCategory'];
+const fake = (): any => Object.fromEntries(METHODS.map(m => [m, vi.fn()]));
 
 describe('mcp server', () => {
-  it('lists the 4 tools', async () => {
+  it('lists the 12 tools', async () => {
     const c = await connect(fake());
-    expect((await c.listTools()).tools.map(t => t.name).sort()).toEqual(['get_best_sellers', 'get_product', 'get_reviews', 'search_products']);
+    expect((await c.listTools()).tools.map(t => t.name).sort()).toEqual([
+      'get_best_sellers', 'get_categories', 'get_category_products', 'get_deals', 'get_offers', 'get_product', 'get_reviews',
+      'get_seller_products', 'get_seller_profile', 'lookup_product', 'search_autocomplete', 'search_products',
+    ]);
+  });
+  it.each([
+    ['get_offers', 'productOffers', { asin: 'B088NRLMPV', page: 2 }],
+    ['lookup_product', 'productLookup', { identifier: '0885909950805' }],
+    ['get_seller_profile', 'sellerProfile', { seller_id: 'A2L77EE7U53NWQ' }],
+    ['get_categories', 'categories', {}],
+  ])('%s calls client.%s', async (tool, method, args) => {
+    const f = fake(); f[method].mockResolvedValue({ data: { ok: 1 }, meta: {} });
+    const r: any = await (await connect(f)).callTool({ name: tool, arguments: args });
+    expect(f[method]).toHaveBeenCalledWith(args);
+    expect(JSON.parse(r.content[0].text)).toEqual({ ok: 1 });
   });
   it('get_product calls the client and returns data', async () => {
     const f = fake(); f.productDetails.mockResolvedValue({ data: { asin: 'B088NRLMPV' }, meta: {} });

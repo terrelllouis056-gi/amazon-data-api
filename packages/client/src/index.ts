@@ -1,4 +1,7 @@
-import type { BestSellersData, Country, Envelope, ListType, Product, Reviews, SearchData, Sort } from './types.js';
+import type {
+  AutocompleteData, BestSellersData, CategoriesData, CategoryProductsData, Country, DealsData, Envelope, ListType,
+  LookupData, OffersData, Product, Reviews, SearchData, SellerProductsData, SellerProfile, Sort,
+} from './types.js';
 export * from './types.js';
 
 const HOST = 'amazon-data-api-search-product-reviews-best-sellers.p.rapidapi.com';
@@ -31,6 +34,32 @@ export class AmazonData {
   }
   bestSellers(p: { category: string; type?: ListType; country?: Country; page?: 1 | 2 }) {
     return this.get<BestSellersData>('best-sellers', p);
+  }
+  sellerProducts(p: { seller_id: string; country?: Country; page?: number; sort?: Sort }) {
+    return this.get<SellerProductsData>('seller-products', p);
+  }
+  /** UPC, EAN, ISBN-10/13 or GTIN; hyphens and spaces are ignored. */
+  productLookup(p: { identifier: string; country?: Country }) {
+    return this.get<LookupData>('product-lookup', p);
+  }
+  productOffers(p: { asin: string; country?: Country; page?: number }) {
+    return this.get<OffersData>('product-offers', p);
+  }
+  deals(p: { country?: Country; page?: 1 } = {}) {
+    return this.get<DealsData>('deals', p);
+  }
+  sellerProfile(p: { seller_id: string; country?: Country }) {
+    return this.get<SellerProfile>('seller-profile', p);
+  }
+  /** Omit `category` for the top-level tree; pass a returned `path` to go one level down. */
+  categories(p: { category?: string; country?: Country } = {}) {
+    return this.get<CategoriesData>('categories', p);
+  }
+  searchAutocomplete(p: { query: string; country?: Country }) {
+    return this.get<AutocompleteData>('search-autocomplete', p);
+  }
+  productsByCategory(p: { category: string; country?: Country; page?: number; sort?: Sort }) {
+    return this.get<CategoryProductsData>('products-by-category', p);
   }
 
   private async get<T>(path: string, params: object): Promise<Envelope<T>> {

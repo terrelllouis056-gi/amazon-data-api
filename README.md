@@ -1,6 +1,6 @@
 # Amazon Data API: client and MCP server
 
-Amazon product data for 23 marketplaces, without the PA-API 5 shutdown and without the Creators API's 10-sales rule: search, product details, ratings and best sellers as JSON.
+Amazon product data for 23 marketplaces, without the PA-API 5 shutdown and without the Creators API's 10-sales rule: search, product details, ratings, seller offers, sellers, deals, categories and best sellers as JSON.
 
 > Earning Amazon Associates commissions? Check your Associates agreement before using any non-Amazon data source.
 
@@ -47,6 +47,16 @@ The full response also has `description` and a `product_details` table. Fields A
 | `GET /product-details` | `productDetails` | `get_product` | one product by ASIN: title, price, images, rating, availability, details table, rank |
 | `GET /product-reviews` | `productReviews` | `get_reviews` | rating, star breakdown, Amazon's "Customers say" summary, topic tags |
 | `GET /best-sellers` | `bestSellers` | `get_best_sellers` | Best Sellers, New Releases, Movers & Shakers, Most Wished For, Gift Ideas; ranks 1 to 100 |
+| `GET /products-by-category` | `productsByCategory` | `get_category_products` | products in a category, no keyword needed |
+| `GET /product-lookup` | `productLookup` | `lookup_product` | find the product for a UPC, EAN, ISBN or GTIN barcode |
+| `GET /product-offers` | `productOffers` | `get_offers` | every seller's offer: price, condition, seller rating, FBA, Prime, delivery |
+| `GET /seller-products` | `sellerProducts` | `get_seller_products` | a third-party seller's storefront |
+| `GET /seller-profile` | `sellerProfile` | `get_seller_profile` | seller business name and address, rating, feedback counts, star breakdown |
+| `GET /deals` | `deals` | `get_deals` | today's deals: deal price, list price, savings, % claimed, end time |
+| `GET /categories` | `categories` | `get_categories` | the category tree, one level at a time |
+| `GET /search-autocomplete` | `searchAutocomplete` | `search_autocomplete` | Amazon's search-box suggestions |
+
+A few endpoints are not available in every marketplace (for example `/search-autocomplete` in IN). The [RapidAPI docs](https://rapidapi.com/terrelllouis056/api/amazon-data-api-search-product-reviews-best-sellers) have the full endpoint × marketplace table; an unavailable pair returns `country_unavailable`.
 
 ## Marketplaces
 
@@ -89,7 +99,7 @@ try {
 
 ## Quickstart: MCP server
 
-Gives Claude and other MCP clients four tools: `search_products`, `get_product`, `get_reviews`, `get_best_sellers`.
+Gives Claude and other MCP clients twelve tools: `search_products`, `get_product`, `get_reviews`, `get_best_sellers`, `get_category_products`, `lookup_product`, `get_offers`, `get_seller_products`, `get_seller_profile`, `get_deals`, `get_categories`, `search_autocomplete`.
 
 Claude Desktop (`claude_desktop_config.json`):
 

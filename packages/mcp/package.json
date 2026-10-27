@@ -1,8 +1,8 @@
 {
   "name": "amazon-data-api-mcp",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "mcpName": "io.github.terrelllouis056-gi/amazon-data-api",
-  "description": "MCP server for the Amazon Data API: search, product details, reviews and best sellers across 23 marketplaces.",
+  "description": "MCP server for the Amazon Data API: search, product details, reviews, offers, sellers, deals, categories, barcode lookup and best sellers across 23 marketplaces.",
   "type": "module",
   "license": "MIT",
   "bin": {
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.2",
-    "amazon-data-api": "^0.1.0",
+    "amazon-data-api": "^0.2.0",
     "zod": "^4.6.7"
   },
   "repository": {
