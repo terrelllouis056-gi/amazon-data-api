@@ -6,6 +6,8 @@ Amazon product data for 23 marketplaces, without the PA-API 5 shutdown and witho
 
 **[Try it free on RapidAPI](https://rapidapi.com/terrelllouis056/api/amazon-data-api-search-product-reviews-best-sellers)** (free plan: 100 requests a month)
 
+Every endpoint, with parameters and a recorded response: [apiwren.com/amazon-product-api](https://apiwren.com/amazon-product-api). Is PA-API gone for you? See [Amazon PA-API alternatives after PA-API 5](https://apiwren.com/guides/amazon-pa-api-alternative).
+
 ## Example
 
 `GET /product-details?asin=B088NRLMPV&country=US`

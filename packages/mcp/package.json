@@ -37,7 +37,7 @@
     "url": "git+https://github.com/terrelllouis056-gi/amazon-data-api.git",
     "directory": "packages/mcp"
   },
-  "homepage": "https://rapidapi.com/terrelllouis056/api/amazon-data-api-search-product-reviews-best-sellers",
+  "homepage": "https://apiwren.com/mcp",
   "bugs": {
     "url": "https://github.com/terrelllouis056-gi/amazon-data-api/issues"
   }

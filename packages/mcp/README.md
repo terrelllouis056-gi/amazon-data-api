@@ -26,6 +26,6 @@ Claude Code:
 claude mcp add amazon-data -e RAPIDAPI_KEY=your-rapidapi-key -- npx -y amazon-data-api-mcp
 ```
 
-Full docs: https://github.com/terrelllouis056-gi/amazon-data-api
+Setup guide: https://apiwren.com/mcp. Source and full docs: https://github.com/terrelllouis056-gi/amazon-data-api
 
 MIT
