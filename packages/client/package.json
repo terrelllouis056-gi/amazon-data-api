@@ -1,6 +1,6 @@
 {
   "name": "amazon-data-api",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Typed client for the Amazon Data API on RapidAPI: search, product details, reviews, offers, sellers, deals, categories, barcode lookup and best sellers across 23 marketplaces.",
   "type": "module",
   "license": "MIT",

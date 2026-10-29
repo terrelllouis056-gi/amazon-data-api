@@ -4,12 +4,12 @@
   "description": "Amazon search, products, reviews, offers, sellers, deals, categories, best sellers: 23 marketplaces.",
   "websiteUrl": "https://apiwren.com/mcp",
   "repository": { "url": "https://github.com/terrelllouis056-gi/amazon-data-api", "source": "github", "subfolder": "packages/mcp" },
-  "version": "0.2.1",
+  "version": "0.2.2",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "amazon-data-api-mcp",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "transport": { "type": "stdio" },
       "environmentVariables": [
         { "name": "RAPIDAPI_KEY", "description": "RapidAPI key subscribed to the Amazon Data API", "isRequired": true, "isSecret": true }
