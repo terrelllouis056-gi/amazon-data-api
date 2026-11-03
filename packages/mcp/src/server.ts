@@ -19,7 +19,7 @@ async function run(fn: () => Promise<{ data: unknown }>) {
 }
 
 export function createServer(client: AmazonData): McpServer {
-  const server = new McpServer({ name: 'amazon-data-api-mcp', version: '0.3.0' });
+  const server = new McpServer({ name: 'amazon-data-api-mcp', version: '0.4.0' });
   server.registerTool('search_products', {
     description: 'Search products',
     inputSchema: {
@@ -72,6 +72,30 @@ export function createServer(client: AmazonData): McpServer {
     description: 'Seller profile: business name and address, rating, feedback counts and star breakdown',
     inputSchema: { seller_id: sellerId, country },
   }, (p) => run(() => client.sellerProfile(p)));
+  server.registerTool('get_seller_reviews', {
+    description: "A seller's buyer feedback, newest first: rating, comment, rater, date",
+    inputSchema: {
+      seller_id: sellerId,
+      cursor: z.string().optional().describe('next_cursor from the previous call, for older feedback. Omit for the newest page.'),
+      country,
+    },
+  }, (p) => run(() => client.sellerReviews(p)));
+  const handle = z.string().regex(/^[A-Za-z0-9][A-Za-z0-9._-]{1,63}$/).describe('Influencer storefront name, as in amazon.com/shop/<handle>.');
+  server.registerTool('get_influencer_profile', {
+    description: "An Amazon influencer's storefront: name, bio, social links, trending products",
+    inputSchema: { handle, country },
+  }, (p) => run(() => client.influencerProfile(p)));
+  server.registerTool('get_influencer_posts', {
+    description: "An Amazon influencer's newest video posts, with the ASINs each one features",
+    inputSchema: { handle, country },
+  }, (p) => run(() => client.influencerPosts(p)));
+  server.registerTool('get_promotion', {
+    description: 'An Amazon promotion by ID: title, schedule, how to claim, the seller running it',
+    inputSchema: {
+      promo_id: z.string().regex(/^[A-Za-z0-9]{8,20}$/).describe('The ID in an amazon.com/promotion/psp/<promo_id> link.'),
+      country,
+    },
+  }, (p) => run(() => client.promoCodeDetails(p)));
   server.registerTool('get_categories', {
     description: 'Category tree: top-level categories, or the children of one category',
     inputSchema: {

@@ -223,7 +223,7 @@ export interface BestSellersData { type: ListType; category: string; page: numbe
 
 export interface SellerProductsData extends SearchPage { seller_id: string; page: number; has_next_page: boolean; results: SearchResult[] }
 export interface CategoryProductsData extends SearchPage { category: string; page: number; has_next_page: boolean; results: SearchResult[] }
-export interface LookupData { identifier: string; results: SearchResult[] }
+export interface LookupData { identifier: string; corrected_query: string | null; results: SearchResult[] }
 
 export interface Offer {
   is_pinned: boolean;
@@ -275,3 +275,54 @@ export interface Category { name: string; node_id: string | null; path: string; 
 export interface CategoriesData { parent: string | null; categories: Category[] }
 
 export interface AutocompleteData { query: string; suggestions: string[] }
+
+export interface SellerReview {
+  rating: number | null;
+  text: string | null;
+  rater: string | null;
+  /** YYYY-MM-DD, or null when the date can't be read; date_text keeps Amazon's wording. */
+  date: string | null;
+  date_text: string | null;
+  is_suppressed: boolean;
+  suppress_reason: string | null;
+}
+/** Pass next_cursor back as `cursor` for the next page; null on the last page. */
+export interface SellerReviewsData { seller_id: string; reviews: SellerReview[]; next_cursor: string | null }
+
+export interface InfluencerProduct { asin: string; image: string | null; price: number | null; currency: string; is_deal: boolean }
+export interface InfluencerProfile {
+  handle: string;
+  name: string;
+  description: string | null;
+  image: string | null;
+  url: string;
+  is_top_creator: boolean;
+  social_links: string[];
+  trending_products: InfluencerProduct[];
+}
+export interface InfluencerPost {
+  id: string;
+  type: 'video';
+  title: string | null;
+  duration: string | null;
+  thumbnail: string | null;
+  video_url: string | null;
+  url: string | null;
+  is_pinned: boolean;
+  /** ASINs the post features. */
+  products: string[];
+}
+export interface InfluencerPostsData { handle: string; name: string; posts: InfluencerPost[] }
+
+export interface PromoDetails {
+  promo_id: string;
+  title: string;
+  banner: string | null;
+  schedule: string | null;
+  how_to_claim: string[];
+  note: string | null;
+  seller_id: string | null;
+  url: string;
+}
+
+export interface RawPage { url: string; html: string }

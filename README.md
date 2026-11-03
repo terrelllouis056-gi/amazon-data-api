@@ -54,9 +54,14 @@ The full response also has `description` and a `product_details` table. Fields A
 | `GET /product-offers` | `productOffers` | `get_offers` | every seller's offer: price, condition, seller rating, FBA, Prime, delivery |
 | `GET /seller-products` | `sellerProducts` | `get_seller_products` | a third-party seller's storefront |
 | `GET /seller-profile` | `sellerProfile` | `get_seller_profile` | seller business name and address, rating, feedback counts, star breakdown |
+| `GET /seller-reviews` | `sellerReviews` | `get_seller_reviews` | a seller's buyer feedback, newest first, paged with a cursor |
 | `GET /deals` | `deals` | `get_deals` | today's deals: deal price, list price, savings, % claimed, end time |
 | `GET /categories` | `categories` | `get_categories` | the category tree, one level at a time |
 | `GET /search-autocomplete` | `searchAutocomplete` | `search_autocomplete` | Amazon's search-box suggestions |
+| `GET /promo-code-details` | `promoCodeDetails` | `get_promotion` | a promotion by ID: title, schedule, how to claim, seller |
+| `GET /influencer-profile` | `influencerProfile` | `get_influencer_profile` | an influencer storefront: name, bio, social links, trending products |
+| `GET /influencer-posts` | `influencerPosts` | `get_influencer_posts` | an influencer's newest video posts and the ASINs they feature |
+| `GET /scrape-url` | `scrapeUrl` | (none: multi-MB HTML) | the raw HTML of any page on the 23 Amazon marketplaces |
 
 A few endpoints are not available in every marketplace (for example `/search-autocomplete` in IN). The [RapidAPI docs](https://rapidapi.com/terrelllouis056/api/amazon-data-api-search-product-reviews-best-sellers) have the full endpoint × marketplace table; an unavailable pair returns `country_unavailable`.
 
@@ -101,7 +106,7 @@ try {
 
 ## Quickstart: MCP server
 
-Gives Claude and other MCP clients twelve tools: `search_products`, `get_product`, `get_reviews`, `get_best_sellers`, `get_category_products`, `lookup_product`, `get_offers`, `get_seller_products`, `get_seller_profile`, `get_deals`, `get_categories`, `search_autocomplete`.
+Gives Claude and other MCP clients sixteen tools: `search_products`, `get_product`, `get_reviews`, `get_best_sellers`, `get_category_products`, `lookup_product`, `get_offers`, `get_seller_products`, `get_seller_profile`, `get_deals`, `get_categories`, `search_autocomplete`, `get_seller_reviews`, `get_promotion`, `get_influencer_profile`, `get_influencer_posts`.
 
 Claude Desktop (`claude_desktop_config.json`):
 

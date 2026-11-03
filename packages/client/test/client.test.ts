@@ -51,6 +51,11 @@ describe('AmazonData', () => {
     ['categories', { category: 'electronics' }, 'categories?category=electronics'],
     ['searchAutocomplete', { query: 'usb c' }, 'search-autocomplete?query=usb+c'],
     ['productsByCategory', { category: 'toys', sort: 'reviews' }, 'products-by-category?category=toys&sort=reviews'],
+    ['sellerReviews', { seller_id: 'A2L77EE7U53NWQ', cursor: 'eyJh+b/c==' }, 'seller-reviews?seller_id=A2L77EE7U53NWQ&cursor=eyJh%2Bb%2Fc%3D%3D'],
+    ['influencerProfile', { handle: 'neyney.0_0', country: 'SG' }, 'influencer-profile?handle=neyney.0_0&country=SG'],
+    ['influencerPosts', { handle: 'deliciousencounters' }, 'influencer-posts?handle=deliciousencounters'],
+    ['promoCodeDetails', { promo_id: 'A2BCF666XZ7UFF', country: 'CA' }, 'promo-code-details?promo_id=A2BCF666XZ7UFF&country=CA'],
+    ['scrapeUrl', { url: 'https://www.amazon.de/dp/B0CHYDJW36' }, 'scrape-url?url=https%3A%2F%2Fwww.amazon.de%2Fdp%2FB0CHYDJW36'],
   ])('%s hits the right path', async (method, params, path) => {
     const f = reply(200, '{}');
     await (new AmazonData({ apiKey: 'k', fetch: f as any }) as any)[method](params);

@@ -1,6 +1,7 @@
 import type {
   AutocompleteData, BestSellersData, CategoriesData, CategoryProductsData, Country, DealsData, Envelope, ListType,
-  LookupData, OffersData, Product, Reviews, SearchData, SellerProductsData, SellerProfile, Sort,
+  InfluencerPostsData, InfluencerProfile, LookupData, OffersData, Product, PromoDetails, RawPage, Reviews, SearchData,
+  SellerProductsData, SellerProfile, SellerReviewsData, Sort,
 } from './types.js';
 export * from './types.js';
 
@@ -50,6 +51,26 @@ export class AmazonData {
   }
   sellerProfile(p: { seller_id: string; country?: Country }) {
     return this.get<SellerProfile>('seller-profile', p);
+  }
+  /** Newest feedback first; pass the previous response's next_cursor as `cursor` for older pages. */
+  sellerReviews(p: { seller_id: string; cursor?: string; country?: Country }) {
+    return this.get<SellerReviewsData>('seller-reviews', p);
+  }
+  /** `handle` is the name in amazon.com/shop/<handle>. */
+  influencerProfile(p: { handle: string; country?: Country }) {
+    return this.get<InfluencerProfile>('influencer-profile', p);
+  }
+  /** The newest video posts (up to 10), each with the ASINs it features. */
+  influencerPosts(p: { handle: string; country?: Country }) {
+    return this.get<InfluencerPostsData>('influencer-posts', p);
+  }
+  /** `promo_id` is the ID in an amazon.com/promotion/psp/<promo_id> link. */
+  promoCodeDetails(p: { promo_id: string; country?: Country }) {
+    return this.get<PromoDetails>('promo-code-details', p);
+  }
+  /** Raw HTML of any page on the 23 Amazon marketplaces; the marketplace comes from the URL. */
+  scrapeUrl(p: { url: string; country?: Country }) {
+    return this.get<RawPage>('scrape-url', p);
   }
   /** Omit `category` for the top-level tree; pass a returned `path` to go one level down. */
   categories(p: { category?: string; country?: Country } = {}) {
