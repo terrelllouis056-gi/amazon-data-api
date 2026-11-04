@@ -29,6 +29,13 @@ describe('AmazonData', () => {
     expect([e.code, e.status, e.message]).toEqual(['invalid_input', 400, 'bad asin']);
   });
 
+  it('maps an error body sent with 200', async () => {
+    const c = new AmazonData({ apiKey: 'k', fetch: reply(200, '{"error":{"code":"not_found","message":"no product"}}') as any });
+    const e = await c.productDetails({ asin: 'x' }).catch((e) => e);
+    expect(e).toBeInstanceOf(AmazonDataError);
+    expect([e.code, e.status, e.message]).toEqual(['not_found', 200, 'no product']);
+  });
+
   it('maps RapidAPI gateway errors', async () => {
     const c = new AmazonData({ apiKey: 'k', fetch: reply(403, '{"message":"You are not subscribed to this API."}') as any });
     const e = await c.productDetails({ asin: 'x' }).catch((e) => e);

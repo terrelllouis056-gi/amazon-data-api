@@ -23,7 +23,7 @@ const seller = await amazon.sellerProfile({ seller_id: 'A2L77EE7U53NWQ' });
 const deals = await amazon.deals({ country: 'GB' });
 ```
 
-Also: `sellerProducts`, `sellerReviews`, `productsByCategory`, `categories`, `searchAutocomplete`, `promoCodeDetails`, `influencerProfile`, `influencerPosts`, `scrapeUrl`. Every method returns `{ data, meta }`. Errors throw `AmazonDataError` with `code` (the API's `error.code`, e.g. `invalid_input`, `not_found`, `busy`) and `status` (HTTP status).
+Also: `sellerProducts`, `sellerReviews`, `productsByCategory`, `categories`, `searchAutocomplete`, `promoCodeDetails`, `influencerProfile`, `influencerPosts`, `scrapeUrl`. Every method returns `{ data, meta }`. Errors throw `AmazonDataError` with `code` (the API's `error.code`, e.g. `invalid_input`, `not_found`, `busy`) and `status` (HTTP status; request errors such as `not_found` arrive with 200).
 
 Get a key and a free plan (100 requests a month) on [RapidAPI](https://rapidapi.com/terrelllouis056/api/amazon-data-api-search-product-reviews-best-sellers). Endpoint reference with example responses: https://apiwren.com/amazon-product-api. Source and full docs: https://github.com/terrelllouis056-gi/amazon-data-api
 

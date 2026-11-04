@@ -94,10 +94,9 @@ export class AmazonData {
     const text = await res.text();
     let body: any;
     try { body = JSON.parse(text); } catch { body = undefined; }
-    if (res.ok) {
-      if (body === undefined) throw new AmazonDataError('http_error', res.status, 'Invalid JSON in response');
-      return body;
-    }
+    // The API answers caller mistakes with 200 and an error body, so check the body before the status.
+    if (res.ok && body !== undefined && !body.error) return body;
+    if (res.ok && body === undefined) throw new AmazonDataError('http_error', res.status, 'Invalid JSON in response');
     if (body?.error?.code) throw new AmazonDataError(body.error.code, res.status, body.error.message);
     if (typeof body?.message === 'string') throw new AmazonDataError('rapidapi_error', res.status, body.message);
     throw new AmazonDataError('http_error', res.status, `HTTP ${res.status}`);
